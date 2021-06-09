@@ -1,0 +1,16 @@
+{
+    "Video_Source_Params":
+    {
+        "video_source_init_string":"file dialog"
+    },
+
+    "Communication_Params":
+    {
+        "destination_IP":"127.0.0.1",
+        "TCP_port":-1,
+        "serial_port_name":"none",
+        "serial_port_baudrate":115200,
+        "camera_address":1,
+        "max_PTU_speed":63
+    }
+}
