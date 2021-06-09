@@ -64,16 +64,40 @@ namespace pelco
         QUERY
     };
 
-
+    /**
+     * @brief Pelco-D protocol parser class.
+     */
     class PelcoDProtocolParser
     {
     public:
 
+        /**
+         * @brief Class constructor.
+         */
         PelcoDProtocolParser();
 
+        /**
+         * @brief Class destructor.
+         */
         ~PelcoDProtocolParser();
 
-        bool GetCommand(uint8_t* packet, uint8_t address, pelco::PelcoDCommands command_ID, uint8_t data_1 = 0, uint8_t data_2 = 0);
+        /**
+         * @brief Method to encode Pelco-D command (Always 7 bytes).
+         * 
+         * @param packet Pointer to packet buffer. Always 7 bytes.
+         * @param address Camera address (usually 1).
+         * @param command_ID ID of command.
+         * @param data_1 First byte of command data (according to Pelco-D specification).
+         * @param data_2 Second byte of command data (according to Pelco-D specification).
+         * @return true If the command has been encoded.
+         * @return false In case any errors.
+         */
+        bool GetCommand(
+            uint8_t* packet,
+            uint8_t address,
+            pelco::PelcoDCommands command_ID,
+            uint8_t data_1 = 0,
+            uint8_t data_2 = 0);
 
     private:
 

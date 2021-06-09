@@ -346,6 +346,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::CAMERA_ON))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -354,6 +355,7 @@ void Keyboard_Processing_Function(int key)
        if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::CAMERA_OFF))
        {
            tcp_port.SendData(packet, 7);
+           serial_port.SendData(packet, 7);
        }
        break;
 
@@ -362,6 +364,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::FOCUS_NEAR))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -370,6 +373,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::FOCUS_FAR))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -378,6 +382,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::ZOOM_WIDE))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -386,6 +391,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::ZOOM_TELE))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -394,6 +400,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::RIGHT, 0x10, 0))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -402,6 +409,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::LEFT, 0x10, 0))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -410,6 +418,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::UP, 0, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -418,6 +427,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::DOWN, 0, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -426,6 +436,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::UP_LEFT, 0x10, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -434,6 +445,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::UP_RIGHT, 0x10, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -442,6 +454,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::DOWN_LEFT, 0x10, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
 
@@ -450,6 +463,7 @@ void Keyboard_Processing_Function(int key)
         if (pelco_protocol_parser.GetCommand(packet, camera_address, pelco::PelcoDCommands::DOWN_RIGHT, 0x10, 0x10))
         {
             tcp_port.SendData(packet, 7);
+            serial_port.SendData(packet, 7);
         }
         break;
     }

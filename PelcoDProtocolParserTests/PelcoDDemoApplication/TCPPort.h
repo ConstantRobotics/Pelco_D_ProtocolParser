@@ -19,7 +19,7 @@
 #else
 #define WIN32_LEAN_AND_MEAN
 #include <winsock2.h>
-#include <ws2tcpip.h>
+#include <Ws2tcpip.h>
 #include <windows.h>
 #include <stdlib.h>
 #pragma comment(lib, "Ws2_32.lib")
@@ -76,18 +76,20 @@ namespace clib
 		 * @brief Method to read data.
 		 * @param buf pointer to data buffer to copy data.
 		 * @param size size of data buffer.
-		 * @param srcSockaddr pointer to output socket data atributes.
+         * @param conn_id Сonnection number from which the data was received
 		 * @return Number of read bytes or return -1 in case error.
 		 */
-        int ReadData(uint8_t *buf, uint32_t size);
+        int ReadData(uint8_t *buf, uint32_t size, int& conn_id);
 
 		/**
 		 * @brief Method to send data.
 		 * @param buf pointer to data to send.
 		 * @param size size of data to send.
+         * @param conn_id Сonnection number where data needs to be sent. Only
+         * for server socket. For the client type, conn_id should be set to -1.
 		 * @return Number of bytes sent or return -1 if UDP socket not open.
 		 */
-		int SendData(uint8_t *buf, uint32_t size);
+        int SendData(uint8_t *buf, uint32_t size, int conn_id = -1);
 
 		/**
 		 * @brief Method to check if UDP socket open.
@@ -159,7 +161,7 @@ namespace clib
              * If the socket has incoming data, it reads it (up to buffer_size) and assign it to the given string.
              * It returns the number of bytes received or -1 if the socket is not in the read_fds set.
              */
-            int receive_data(int client_fd, int buffer_size, char* data);
+            int receive_data(int buffer_size, char* data, int& conn_id);
             /**
              * This method receives a socket, buffer size, and a reference to data string.
              * It checks if the socket is in the read_fds set (meaning it has incoming data to receive or it has ended the connection).
@@ -167,12 +169,12 @@ namespace clib
              * If the socket has incoming data, it reads it (up to buffer_size) and assign it to the given string.
              * It returns the number of bytes received or -1 if the socket is not in the read_fds set.
              */
-            int send_data(int client_fd, int data_size, char* data);
+            int send_data(int data_size, char* data, int conn_id = -1);
 
             /**
              * This method send "OK" to the given socket.
              */
-            int respond_data(char* data, int data_size);
+            int respond_data(char* data, int data_size, int conn_id);
             /**
              * This method closes all active sockets.
              * The active sockets are the one that are in the master_fd set.
@@ -196,6 +198,7 @@ namespace clib
         {
             char* data;
             uint16_t data_size;
+            uint16_t cliend_id;
         };
 
         std::queue<incom_data>* _data;		//Queue for saving incoming data
@@ -206,7 +209,7 @@ namespace clib
         /**
          * Starts the internal thread that executes the main routine (run()).
          */
-        void start();
+        bool start();
         /**
          * Stops the main routine and the internal thread.
          */

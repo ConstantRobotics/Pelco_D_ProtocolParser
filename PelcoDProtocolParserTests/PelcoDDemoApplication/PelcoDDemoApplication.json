@@ -1,12 +1,12 @@
 {
     "Video_Source_Params":
     {
-        "video_source_init_string":"file dialog"
+        "video_source_init_string":"test.mp4"
     },
 
     "Communication_Params":
     {
-        "destination_IP":"127.0.0.1",
+        "camera_IP":"127.0.0.1",
         "TCP_port":-1,
         "serial_port_name":"none",
         "serial_port_baudrate":115200,
